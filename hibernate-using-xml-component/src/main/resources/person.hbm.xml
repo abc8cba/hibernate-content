@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+	<class name="com.project.entity.Person" table="tbl_person007">
+		<id name="personId" column="pid">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name"></property>
+
+        <!--Since Hibernate 3.0, lazy collection is enabled by default.  -->
+		<component name="address" class="com.project.entity.Address" lazy="true">
+			<property name="countryName" column="country_name"></property>
+			<property name="cityName" column="city_name"></property>
+			<property name="stateName" column="state_name"></property>
+			<property name="pincode"></property>
+			<property name="landmark"></property>
+		</component>
+	</class>
+</hibernate-mapping>   
+

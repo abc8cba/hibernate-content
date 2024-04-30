@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+	<class name="com.project.entity.Question" table="tbl_questions200">
+		<id name="id" type="int">  
+            <column name="ques_id" />  
+            <generator class="increment" />  
+        </id>  
+		<property name="question" />
+
+		<list name="answers" table="tbl_ques_ans_200" cascade="all">
+			<key column="question_id"></key>
+			<index column="type"></index>
+			<many-to-many class="com.project.entity.Answer" column="ans_id"/>
+		</list>
+	</class>
+</hibernate-mapping>   
+

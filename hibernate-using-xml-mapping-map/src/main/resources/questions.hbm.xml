@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+	<class name="com.project.entity.Question" table="tbl_questions736">
+		<id name="id">
+			<generator class="increment"></generator>
+		</id>
+		<property name="questionName" column="question" />
+		<property name="questionAskedByUser" column="question_asked_by" />
+
+		<map name="answers" table="tbl_answer736" cascade="all">
+			<key column="question_id"></key>
+			<index column="answer" type="string"></index>
+			<element column="answer_given_by" type="string"></element>
+		</map>
+
+	</class>
+</hibernate-mapping>   
+
